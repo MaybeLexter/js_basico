@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Interativa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 20px;
+            color: #343a40;
+        }
+        h1 {
+            color: #007BFF;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bem-vindo à Página Interativa!</h1>
+
+    <div class="container">
+
+        <div class="section">
+            <p id="text">Olá Mundo!.</p>
+            <button onclick="alterarTexto()"> Para Inglês</button>
+        </div>
+
+        <div class="section">
+            <h2>Contagem</h2>
+            <p>Contagem: <span id="contador">0</span></p>
+            <button onclick="incrementarContador()">+1</button>
+        </div>
+
+        <div class="section" id="form">
+            <h2>Contato</h2>
+            <input type="text" id="nome" placeholder="Nome" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <button onclick="enviarFormulario()">Enviar</button>
+        </div>
+
+        <div id="output"></div>
+        
+    </div>
+
+    <script>
+        let contagem = 0;
+
+        function alterarTexto() {
+            document.getElementById("text").innerText = "Hello World!";
+        }
+
+        function incrementarContador() {
+            contagem++;
+            document.getElementById("contador").innerText = contagem;
+        }
+
+        function enviarFormulario() {
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            document.getElementById("output").innerText = `Nome: ${nome}, Email: ${email}`;
+        }
+    </script>
+
+</body>
+</html>
